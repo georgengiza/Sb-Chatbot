@@ -1,0 +1,164 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - check_balance
+  - view_transactions
+  - pay_bill
+  - transfer_funds
+  - loan_status
+  - block_card
+  - open_account
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - about_stewardbank
+  - extract_statement
+  - provide_account_number
+
+entities:
+  - account_number
+  - bill_type
+  - amount
+  - from_account
+  - to_account
+  - loan_number
+  - card_number
+  - account_type
+  - name
+  - email
+  - card_type
+
+slots:
+  email:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: email
+  name:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: name
+  amount:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: amount
+      - type : from_text
+  card_type:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: card_type
+  account_number:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: account_number
+      - type: from_text
+
+  bill_type:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: bill_type
+  from_account:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: from_account
+  to_account:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: to_account
+  loan_number:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: loan_number
+  card_number:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: card_number
+  account_type:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: account_type
+
+responses:
+  utter_greet:
+    - text: "Hey {name}! How are you?"
+      buttons:
+        - title: "great"
+          payload: "/mood_great"
+        - title: "super sad"
+          payload: "/mood_sad"
+    - text: "Hello {name}, how are you ?"
+    - text: "Hello {name}! How can i help?"
+
+  utter_cheer_up:
+    - text: "Here is something to cheer you up:"
+      image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+    - text: "Did that help you?"
+
+  utter_happy:
+    - text: "Great, carry on!"
+
+  utter_goodbye:
+    - text: "Bye"
+
+  utter_about_steward_bank:
+    - text: "Kindly follow the link below to know more about Steward Bank:"
+      image: "https://www.stewardbank.co.zw/about-us/"
+
+  utter_iamabot:
+    - text: "I am a bot, here to take you through the digital banking pathways."
+  utter_ask_account_number:
+    - text: "Please provide your account number."
+  utter_ask_bill_type:
+    - text: "What type of bill would you like to pay?"
+  utter_ask_amount:
+    - text: "How much would you like to pay?"
+  utter_ask_from_account:
+    - text: "Which account should I transfer from?"
+  utter_ask_to_account:
+    - text: "Which account should I transfer to?"
+  utter_ask_loan_number:
+    - text: "Please provide your loan number."
+  utter_ask_card_number:
+    - text: "Please provide your card number."
+  utter_ask_account_type:
+    - text: "What type of account would you like to open?"
+
+actions:
+  - action_check_balance
+  - action_transaction_history
+  - action_pay_bill
+  - action_transfer_funds
+  - action_loan_status
+  - action_block_card
+  - action_open_account
+  - action_extract_statement
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+

@@ -1,0 +1,207 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - how are you
+    - hello my name is [George](name)
+    - Hie, i am [George](name)
+    - Sup! my name is [George](name)
+    - hello there my name is [George](name)
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: about_stewardbank
+  examples: |
+    - tell me about steward bank
+    - about stewardbank
+    - about steward
+    - about steward bank
+    - about your company
+    - your company
+
+- intent: check_balance
+  examples: |
+    - What's my account balance?
+    - I want to check my balance
+    - Can you tell me how much money I have?
+    - Check my account balance
+    - What is my balance?
+    - How much money do I have in my account?
+    - balance
+    - account balance
+
+- intent: provide_account_number
+  examples: |
+    - My account number is [1007377227](account_number)
+    - It's [2345678901](account_number)
+    - [9876543210](account_number)
+    - The account number is [1122334455](account_number)
+
+- intent: extract_statement
+  examples: |
+    - I want you to extract my statement
+    - my bank statement
+    - bank statement
+    - statement
+
+- intent: view_transactions
+  examples: |
+    - Show me my last transactions
+    - Can I see my transaction history?
+    - What are my last 5 transactions?
+
+- intent: pay_bill
+  examples: |
+    - Pay my electricity bill
+    - I want to pay my water bill of 50 dollars
+    - Can I settle my credit card bill?
+
+- intent: transfer_funds
+  examples: |
+    - Transfer $100 to my savings account
+    - Send $200 to John Doe
+    - Move $500 from checking to savings
+    - I want to transfer money
+    - Money transfer
+    - Can you help me transfer funds?
+    - I need to send money to a friend
+    - How do I transfer $50 to my other account?
+    - Please move 1000 dollars to my savings
+    - I'd like to transfer €200 to my wife's account
+    - Shift £300 from my current account to my ISA
+    - Wire $1500 to account number 1234567
+    - I want to send 500 yen to my brother
+    - Transfer money between my accounts
+    - Can you move some funds for me?
+    - I need to make a bank transfer
+    - Help me send $75 to my daughter's account
+    - Move 250 ZWG from savings to checking
+    - I want to transfer 1000 ZWG to my parent's account
+    - Initiate a funds transfer
+    - How can I send money to another bank?
+    - Transfer $400 to account ending in 5678
+    - I need to make an international money transfer
+    - Move $2000 to my investment account
+    - Can you transfer the money I owe to my roommate?
+    - I want to send my monthly rent payment
+    - Help me transfer my salary to my savings account
+    - I need to move some money around
+    - Transfer the remaining balance to my other account
+    - Send money to my Venmo
+    - I want to transfer funds to my PayPal account
+    - Move $300 to my emergency fund
+    - Can you help me send money overseas?
+    - Transfer my account balance to another bank
+    - I need to wire money to a business partner
+    - Move $5000 to my retirement account
+    - Send money to my kid's college fund
+    - Transfer $150 to my credit card to pay the bill
+    - I want to move some money to my joint account
+    - Can you transfer $80 to my friend's bank account?
+    - Help me send my monthly allowance to my nephew
+    - Transfer the refund amount to my checking account
+    - I need to send a payment to my landlord
+    - Move $1000 to my high-yield savings account
+    - Send money to my brokerage account to buy stocks
+
+- intent: loan_status
+  examples: |
+    - What is the status of my loan?
+    - Show me my loan balance
+    - When is my next loan payment due?
+
+- intent: open_account
+  examples: |
+    - I want to open a new savings account
+    - Can I create a checking account?
+    - Help me open a new account
+- intent: block_card
+  examples: |
+    - Block my card
+    - i want to block my card
+    - kindly block my card

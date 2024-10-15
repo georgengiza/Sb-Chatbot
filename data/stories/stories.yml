@@ -1,0 +1,107 @@
+version: "3.1"
+
+stories:
+- story: check balance story
+  steps:
+  - intent: check_balance
+  - action: utter_ask_account_number
+  - intent: provide_account_number
+  - action: action_check_balance
+
+- story: view transactions story
+  steps:
+  - intent: view_transactions
+  - action: utter_ask_account_number
+  - slot_was_set:
+    - account_number: "12345678"
+  - action: action_transaction_history
+
+- story: pay bill story
+  steps:
+  - intent: pay_bill
+  - action: utter_ask_bill_type
+  - slot_was_set:
+    - bill_type: "electricity"
+  - action: utter_ask_amount
+  - slot_was_set:
+    - amount: 100
+  - action: action_pay_bill
+
+- story: transfer funds story
+  steps:
+  - intent: transfer_funds
+  - action: utter_ask_from_account
+  - slot_was_set:
+    - from_account: "checking"
+  - action: utter_ask_to_account
+  - slot_was_set:
+    - to_account: "savings"
+  - action: utter_ask_amount
+  - slot_was_set:
+    - amount: 200
+  - action: action_transfer_funds
+
+- story: check loan status story
+  steps:
+  - intent: loan_status
+  - action: utter_ask_loan_number
+  - slot_was_set:
+    - loan_number: "LN12345678"
+  - action: action_loan_status
+
+- story: block card story
+  steps:
+  - intent: block_card
+  - action: utter_ask_card_number
+  - slot_was_set:
+    - card_number: "1234 5678 9123 4567"
+  - action: action_block_card
+
+- story: open account story
+  steps:
+  - intent: open_account
+  - action: utter_ask_account_type
+  - slot_was_set:
+    - account_type: "savings"
+  - action: action_open_account
+
+- story: greet and goodbye
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+  - intent: about_stewardbank
+  - action: utter_about_steward_bank
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: Extract Statement
+  steps:
+  - intent: extract_statement
+  - action: action_extract_statement
